@@ -1,7 +1,7 @@
 SharpWit
 ========
 
-C# 4.5 Wit.AI interpreter
+C# 4.5 Wit.ai natural language interpreter
 =========================
 
 Developed by: Sam Kraaijveld
