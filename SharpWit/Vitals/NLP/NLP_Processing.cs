@@ -10,6 +10,8 @@ namespace SharpWit.Vitals.NLP
 {
     class NLP_Processing
     {
+        private string wit_ai_access_token = "put_your_wit.ai_access_token_here";
+
         public Task<string> ProcessNLP(string text)
         {
             return Task.Run(() =>
@@ -26,7 +28,7 @@ namespace SharpWit.Vitals.NLP
             WebRequest request = WebRequest.Create(url);
 
             request.Method = "GET";
-            request.Headers["Authorization"] = "Bearer put_your_wit.ai_access_token_here";
+            request.Headers["Authorization"] = "Bearer " + wit_ai_access_token;
 
             WebResponse response = request.GetResponse();
             Stream dataStream = response.GetResponseStream();
