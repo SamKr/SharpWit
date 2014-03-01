@@ -6,7 +6,7 @@ C# 4.5 Wit.ai natural language interpreter
 
 Developed by: Sam Kraaijveld
 
-Uses: wit.ai and NewtonSoft JSON
+Uses: wit.ai and json.net
 
 WPF project, but the code is interchangable with WinForms
 
