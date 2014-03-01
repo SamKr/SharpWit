@@ -4,7 +4,8 @@ SharpWit
 C# 4.5 Wit.AI interpreter
 =========================
 
-Developed by: Sam Kraaijveld 
+Developed by: Sam Kraaijveld
+
 Uses: wit.ai and NewtonSoft JSON
 
 WPF project, but the code is interchangable with WinForms
