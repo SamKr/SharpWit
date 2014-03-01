@@ -12,7 +12,7 @@ WPF project, but the code is interchangable with WinForms
 
 =========================
 
-Wit.ai is an online service that takes a natural language sentence, ie. 'I have a meeting tomorrow', and sends back data that can be easily interpreted by software, ie. 'intent: appointment, datetime: tomorrow'.
+Wit.ai is an online service that takes a natural language sentence, ie. 'I have a meeting tomorrow', and sends back data that can be easily interpreted by software, ie. 'intent: appointment, datetime: 2014-03-02T00:00:00.000+01:00'.
 
 This application connects to your wit.ai instance, sends a sentence and retrieves the interpreted data. The data will then be parsed from json and cast into corresponding classes.
 
