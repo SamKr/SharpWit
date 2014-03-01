@@ -18,6 +18,8 @@ This application connects to your wit.ai instance, sends a sentence and retrieve
 
 Currently quite basic, but under heavy development. Will be linked to a domotica system so you can get an idea of the features it will get. But because of its modular design it can be used for anything really, feel free to take any part of the code.
 
+IMPORTANT: Open Vitals.NLP.NLP_Processing.cs and add your wit.ai access token, or the connection will fail. You can find it under 'Settings' in the wit.ai console.
+
 A big thank-you to the developers over at wit.ai for making their fantastic service, and free-to-use at that :)
 
 Sam.
