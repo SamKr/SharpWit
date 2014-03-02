@@ -28,10 +28,14 @@ Sam.
 
 Version history:
 
+02.03.2014
+
+- Support for JSON arrays
+- Support for voice; interpret your speech
+
 01.03.2014	
 
 - Connect with wit.ai and send/retrieve data
 - Interpret JSON and cast into custom class
-- Support for JSON arrays
 - Interpret intent and cast into corresponding class
 - Basic custom string based on data as a proof-of-concept
