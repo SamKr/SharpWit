@@ -15,7 +15,7 @@ namespace SharpWit.Vitals.Brain
         {
             try
             {
-                // Bind to the wit NLP respons class
+                // Bind to the wit.ai NLP response class
                 o_NLP = _o_NLP;
                 conf = (o_NLP.outcome.confidence * 100);
 

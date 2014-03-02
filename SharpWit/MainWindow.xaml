@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SharpWit - wit.ai language interpreter" Height="586.013" Width="467.006" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Type a sentence and press [enter], and I will try to parse it." HorizontalAlignment="Left" Margin="32,23,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Type a sentence and press [enter], and I will try to parse it." HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Content="You:" HorizontalAlignment="Left" Margin="34,71,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbYou" HorizontalAlignment="Left" Height="41" Margin="93,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" KeyUp="tbYou_KeyUp" MaxLength="255"/>
         <Label Content="I:" HorizontalAlignment="Left" Margin="49,184,0,0" VerticalAlignment="Top"/>
@@ -12,7 +12,9 @@
         <TextBox x:Name="tbI" HorizontalAlignment="Left" Height="125" Margin="95,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340"/>
         <Label x:Name="lblYou" Content="" HorizontalAlignment="Left" Height="49" Margin="93,121,0,0" VerticalAlignment="Top" Width="338" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Label Content="Developed by Sam Kraaijveld, powered by wit.ai" HorizontalAlignment="Left" Margin="19,513,0,0" VerticalAlignment="Top" FontSize="10"/>
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="311,514,0,0" VerticalAlignment="Top" Width="122" Click="Button_Click"/>
+        <Button x:Name="btnShutdown" Content="Exit" HorizontalAlignment="Left" Margin="311,514,0,0" VerticalAlignment="Top" Width="122" Click="btnShutdown_Click"/>
+        <Label Content="Alternatively, click here to record speech:" HorizontalAlignment="Left" Margin="34,36,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="btnRecord" Content="record" HorizontalAlignment="Left" Margin="299,42,0,0" VerticalAlignment="Top" Width="132" Click="btnRecord_Click"/>
 
     </Grid>
 </Window>
