@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace SharpWit.Objects
 {
-    // Fill this class with the corresponding objects, the names should correspond with the json names
-    // The structure should also correspond with the json structure or they won't be cast
+    // Fill this class with the corresponding objects, the names should correspond with the JSON names
+    // The structure should also correspond with the JSON structure or they won't be cast
 
     class O_NLP
     {
@@ -29,7 +29,7 @@ namespace SharpWit.Objects
             public double confidence { get; set; }
         }
 
-        // You should add every custom entity here
+        // You should add your custom entities here
         // Can be single or array, will always be cast to an array
         public class _Entities
         {

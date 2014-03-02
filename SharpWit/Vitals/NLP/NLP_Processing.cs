@@ -13,7 +13,7 @@ namespace SharpWit.Vitals.NLP
 {
     class NLP_Processing
     {
-        private string wit_ai_access_token = "replace_with_your_access_token";
+        private string wit_ai_access_token = "4P7Y4LUYD2F7T6G4SEWD6MJFJTW4AKIK";
 
         public Task<string> ProcessWrittenText(string text)
         {
@@ -31,7 +31,7 @@ namespace SharpWit.Vitals.NLP
             });
         }
 
-        // Send the text to the wit API
+        // Send the text to the wit.ai API
         private string ProcessText(string text)
         {
             string url = "https://api.wit.ai/message?q=" + text;
@@ -50,7 +50,7 @@ namespace SharpWit.Vitals.NLP
             return serverResponse;
         }
 
-        // Send the wav file to the wit API
+        // Send the wav file to the wit.ai API
         private string ProcessSpeech(string file)
         {
             FileStream filestream = new FileStream(file, FileMode.Open, FileAccess.Read);
