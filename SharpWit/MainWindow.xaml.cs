@@ -85,7 +85,7 @@ namespace SharpWit
                     nlp_text = await vitNLP.ProcessSpokenText(text);
                 }
 
-                // If the audio file doesn't contain anything, or is to vague, a code 400 will be returned
+                // If the audio file doesn't contain anything, or wit.ai doesn't understand it, a code 400 will be returned
                 if (nlp_text.Contains("The remote server returned an error: (400) Bad Request"))
                 {
                     tbI.Text = "Sorry, didn't get that. Could you please repeat yourself?";
