@@ -91,6 +91,7 @@ namespace SharpWit
                     tbI.Text = "Sorry, didn't get that. Could you please repeat yourself?";
                     btnRecord.IsEnabled = true;
                     tbYou.IsEnabled = true;
+                    tbRaw.Text = nlp_text;
                     return;
                 }
 
