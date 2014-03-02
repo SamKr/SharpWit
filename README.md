@@ -32,5 +32,6 @@ Version history:
 
 - Connect with wit.ai and send/retrieve data
 - Interpret JSON and cast into custom class
+- Support for JSON arrays
 - Interpret intent and cast into corresponding class
 - Basic custom string based on data as a proof-of-concept
