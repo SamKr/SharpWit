@@ -53,21 +53,19 @@ namespace SharpWit.Vitals.NLP
         // Send the wav file to the wit API
         private string ProcessSpeech(string file)
         {
-            FileStream FS_Audiofile = new FileStream(file, FileMode.Open, FileAccess.Read);
-            BinaryReader BR_Audiofile = new BinaryReader(FS_Audiofile);
-            byte[] BA_AudioFile = BR_Audiofile.ReadBytes((Int32)FS_Audiofile.Length);
-            FS_Audiofile.Close();
-            BR_Audiofile.Close();
+            FileStream filestream = new FileStream(file, FileMode.Open, FileAccess.Read);
+            BinaryReader filereader = new BinaryReader(filestream);
+            byte[] BA_AudioFile = filereader.ReadBytes((Int32)filestream.Length);
+            filestream.Close();
+            filereader.Close();
 
-            HttpWebRequest _HWR_SpeechToText = null;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.wit.ai/speech");
 
-            _HWR_SpeechToText = (HttpWebRequest)WebRequest.Create("https://api.wit.ai/speech");
-
-            _HWR_SpeechToText.Method = "POST";
-            _HWR_SpeechToText.Headers["Authorization"] = "Bearer " + wit_ai_access_token;
-            _HWR_SpeechToText.ContentType = "audio/wav";
-            _HWR_SpeechToText.ContentLength = BA_AudioFile.Length;
-            _HWR_SpeechToText.GetRequestStream().Write(BA_AudioFile, 0, BA_AudioFile.Length);
+            request.Method = "POST";
+            request.Headers["Authorization"] = "Bearer " + wit_ai_access_token;
+            request.ContentType = "audio/wav";
+            request.ContentLength = BA_AudioFile.Length;
+            request.GetRequestStream().Write(BA_AudioFile, 0, BA_AudioFile.Length);
 
             // Delete the temp file
             try
@@ -82,15 +80,15 @@ namespace SharpWit.Vitals.NLP
             // Process the wit.ai response
             try
             {
-                HttpWebResponse HWR_Response = (HttpWebResponse)_HWR_SpeechToText.GetResponse();
-                if (HWR_Response.StatusCode == HttpStatusCode.OK)
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    StreamReader SR_Response = new StreamReader(HWR_Response.GetResponseStream());
-                    return SR_Response.ReadToEnd();
+                    StreamReader response_stream = new StreamReader(response.GetResponseStream());
+                    return response_stream.ReadToEnd();
                 }
                 else
                 {
-                    return "Error: " + HWR_Response.StatusCode.ToString();
+                    return "Error: " + response.StatusCode.ToString();
                 }
             }
             catch (Exception ex)
