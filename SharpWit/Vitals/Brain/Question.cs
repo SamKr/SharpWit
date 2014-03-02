@@ -30,15 +30,18 @@ namespace SharpWit.Vitals.Brain
 
                 try
                 {
-                    string math = o_NLP.outcome.entities.math_expression.value;
+                    string math = o_NLP.outcome.entities.math_expression[0].value;
                     sentence += Environment.NewLine + "You want to know the outcome of " + math + ".";
                 }
                 catch
                 {
                     try
                     {
-                        string question = o_NLP.outcome.entities.question.value;
-                        sentence += Environment.NewLine + "You want to know about: " + question + ".";
+                        foreach (Objects.O_NLP._Question q in o_NLP.outcome.entities.question)
+                        {
+                            sentence += Environment.NewLine + "You want to know about: " + q.value + ".";
+                        }
+                        
                     }
                     catch
                     {

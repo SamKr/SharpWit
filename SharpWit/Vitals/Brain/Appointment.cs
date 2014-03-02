@@ -30,16 +30,16 @@ namespace SharpWit.Vitals.Brain
 
                 try
                 {
-                    string appointment = o_NLP.outcome.entities.agenda_entry.value;
+                    string appointment = o_NLP.outcome.entities.agenda_entry[0].value;
                     sentence += Environment.NewLine + "You want to make this appointment: " + appointment;
 
                     try
                     {
-                        string startdate = o_NLP.outcome.entities.datetime.value.from.ToString();
+                        string startdate = o_NLP.outcome.entities.datetime[0].value.from.ToString();
                         sentence += Environment.NewLine + "You want it: " + startdate;
                         try
                         {
-                            string enddate = o_NLP.outcome.entities.datetime.value.to.ToString();
+                            string enddate = o_NLP.outcome.entities.datetime[0].value.to.ToString();
                             sentence += Environment.NewLine + "You want it 'till: " + enddate;
 
                         }

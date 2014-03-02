@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,8 +11,6 @@ namespace SharpWit.Objects
 {
     // Fill this class with the corresponding objects, the names should correspond with the json names
     // The structure should also correspond with the json structure or they won't be cast
-
-    // A cleaner solution would be to make a class per response type, only takes minimal code adjustments
 
     class O_NLP
     {
@@ -30,16 +30,35 @@ namespace SharpWit.Objects
         }
 
         // You should add every custom entity here
-        // Can be an array or single
+        // Can be single or array, will always be cast to an array
         public class _Entities
         {
-            public _DateTime datetime { get; set; }
-            public _Object _object { get; set; }
-            public _WolframAlpha wolfram_search_query { get; set; }
-            public _Math_Expression math_expression { get; set; }
-            public _Agenda_Entry agenda_entry { get; set; }
-            public _On_Off on_off { get; set; }
-            public _Question question { get; set; }
+            [JsonConverter(typeof(JsonToArrayConverter<_DateTime>))]
+            public _DateTime[] datetime { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Object>))]
+            public _Object[] _object { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_WolframAlpha>))]
+            public _WolframAlpha[] wolfram_search_query { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Math_Expression>))]
+            public _Math_Expression[] math_expression { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Agenda_Entry>))]
+            public _Agenda_Entry[] agenda_entry { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_On_Off>))]
+            public _On_Off[] on_off { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Question>))]
+            public _Question[] question { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Message_Body>))]
+            public _Message_Body[] message_body { get; set; }
+
+            [JsonConverter(typeof(JsonToArrayConverter<_Contact>))]
+            public _Contact[] contact { get; set; }
         }
 
         public class _DateTime
@@ -99,6 +118,47 @@ namespace SharpWit.Objects
         public class _On_Off
         {
             public string value { get; set; }
+        }
+
+        public class _Message_Body
+        {
+            public int end { get; set; }
+            public int start { get; set; }
+            public string value { get; set; }
+            public string body { get; set; }
+            public bool suggested { get; set; }
+        }
+
+        public class _Contact
+        {
+            public int end { get; set; }
+            public int start { get; set; }
+            public string value { get; set; }
+            public string body { get; set; }
+            public bool suggested { get; set; }
+        }
+
+        // Converts single values to arrays
+        public class JsonToArrayConverter<T> : CustomCreationConverter<T[]>
+        {
+            public override T[] Create(Type objectType)
+            {
+                return new T[0];
+            }
+
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            {
+                if (reader.TokenType == JsonToken.StartArray)
+                {
+                    object result = serializer.Deserialize(reader, objectType);
+                    return result;
+                }
+                else
+                {
+                    var resultObject = serializer.Deserialize<T>(reader);
+                    return new T[] { resultObject };
+                }
+            }
         }
     }
 }

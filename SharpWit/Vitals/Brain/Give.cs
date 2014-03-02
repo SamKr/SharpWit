@@ -30,14 +30,14 @@ namespace SharpWit.Vitals.Brain
 
                 try
                 {
-                    sentence += Environment.NewLine + "You want a " + o_NLP.outcome.entities._object.value + ".";
+                    sentence += Environment.NewLine + "You want a " + o_NLP.outcome.entities._object[0].value + ".";
                 }
                 catch { }
 
 
                 try
                 {
-                    sentence += " You want it on " + o_NLP.outcome.entities.datetime.value.from.DayOfWeek + ".";
+                    sentence += " You want it on " + o_NLP.outcome.entities.datetime[0].value.from.DayOfWeek + ".";
                 }
                 catch { }
 

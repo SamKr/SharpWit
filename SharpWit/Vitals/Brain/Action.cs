@@ -30,16 +30,30 @@ namespace SharpWit.Vitals.Brain
 
                 try
                 {
-                    string obj = o_NLP.outcome.entities._object.value;
+                    string obj = o_NLP.outcome.entities._object[0].value;
                     sentence += Environment.NewLine + "You want to interact with: " + obj;
 
                     try
                     {
-                        string action = o_NLP.outcome.entities.on_off.value;
+                        string action = o_NLP.outcome.entities.on_off[0].value;
                         sentence += Environment.NewLine + "You want it: " + action;
 
                     }
                     catch { }
+                }
+                catch { }
+
+                try
+                {
+                    try
+                    {
+                        string obj2 = o_NLP.outcome.entities.contact[0].value;
+                        sentence += Environment.NewLine + "You want to send a message to: " + obj2;
+                    }
+                    catch { }
+
+                    string obj = o_NLP.outcome.entities.message_body[0].value;
+                    sentence += Environment.NewLine + "You want to send this message: " + obj;
                 }
                 catch { }
 
