@@ -6,7 +6,10 @@ C# 4.5 Wit.ai natural language interpreter
 
 Developed by: Sam Kraaijveld
 
-Uses: wit.ai and json.net
+Uses: 
+
+wit.ai  (https://wit.ai/)
+json.net
 
 WPF project, but the code is interchangable with WinForms
 
@@ -20,7 +23,8 @@ Currently quite basic, but under heavy development. Will be linked to a domotica
 
 IMPORTANT: Open Vitals.NLP.NLP_Processing.cs and add your wit.ai access token, or the connection will fail. You can find it under 'Settings' in the wit.ai console.
 
-A big thank-you to the developers over at wit.ai for making their fantastic service, and free-to-use at that :)
+A big thank-you to the developers over at wit.ai for making their fantastic service, and free-to-use at that :) You can find them here: https://wit.ai/
+
 
 Sam.
 
