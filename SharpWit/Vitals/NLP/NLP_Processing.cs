@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -13,7 +13,7 @@ namespace SharpWit.Vitals.NLP
 {
     class NLP_Processing
     {
-        private string wit_ai_access_token = "insert_your_access_token_here";
+		private string wit_ai_access_token = "insert_your_wit_ai_access_token_here";
 
         public Task<string> ProcessWrittenText(string text)
         {
@@ -34,7 +34,9 @@ namespace SharpWit.Vitals.NLP
         // Send the text to the wit.ai API
         private string ProcessText(string text)
         {
-            string url = "https://api.wit.ai/message?q=" + text;
+            // 20140401 tells the wit.ai engine which version to use, in this case the last version
+            // before April 1st, 2014
+            string url = "https://api.wit.ai/message?v=20140401&q=" + text;
 
             WebRequest request = WebRequest.Create(url);
 
