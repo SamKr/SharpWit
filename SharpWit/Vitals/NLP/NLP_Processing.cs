@@ -13,7 +13,7 @@ namespace SharpWit.Vitals.NLP
 {
     class NLP_Processing
     {
-		private string wit_ai_access_token = "insert_your_wit_ai_access_token_here";
+	private string wit_ai_access_token = "insert_your_wit_ai_access_token_here";
 
         public Task<string> ProcessWrittenText(string text)
         {
