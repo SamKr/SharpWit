@@ -29,6 +29,10 @@ Sam.
 
 Version history:
 
+10.05.2014
+
+- Added mandatory versioning, see https://wit.ai/docs/api#versioning for more details
+
 02.03.2014
 
 - Support for JSON arrays
