@@ -18,8 +18,9 @@ namespace SharpWit.Objects
         public class RootObject
         {
             public string msg_id { get; set; }
-            public string msg_body { get; set; }            
-            public _Outcome outcome { get; set; }            
+            public string msg_body { get; set; }
+            public _Outcome outcome { get; set; }             
+            public List<_Outcome> outcomes { get; set; }            
         }
 
         public class _Outcome

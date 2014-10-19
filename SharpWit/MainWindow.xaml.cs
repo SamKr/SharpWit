@@ -105,9 +105,8 @@ namespace SharpWit
                 objAssembly = Assembly.GetExecutingAssembly();
 
                 Type classType = objAssembly.GetType("SharpWit.Vitals.Brain." + oNLP.outcome.intent);
-
                 object obj = Activator.CreateInstance(classType);
-
+                
                 MethodInfo mi = classType.GetMethod("makeSentence");
 
                 object[] parameters = new object[1];
@@ -119,6 +118,9 @@ namespace SharpWit
 
                 // Show what was deducted from the sentence
                 tbI.Text = sentence;
+
+                // Speak response
+                Voice.Say(sentence);
 
                 btnRecord.IsEnabled = true;
                 tbYou.IsEnabled = true;
