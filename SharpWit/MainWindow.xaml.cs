@@ -155,7 +155,7 @@ namespace SharpWit
             {
                 recording = false;
                 speechTimer.Enabled = false;
-                mciSendString("save recsound " + speechfilename, "", 0, 0);
+                mciSendString("save recsound \"" + speechfilename + "\"", "", 0, 0);
                 mciSendString("close recsound ", "", 0, 0);
                 btnRecord.Content = "record";
                 btnRecord.IsEnabled = false;
