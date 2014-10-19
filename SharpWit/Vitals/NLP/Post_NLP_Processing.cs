@@ -23,6 +23,14 @@ namespace SharpWit.Vitals.NLP
             //Deserialize into our class
             var rootObject = JsonConvert.DeserializeObject<Objects.O_NLP.RootObject>(jsonText);
 
+            // Let it work for voice and speech
+            if (rootObject.outcomes == null)
+            {
+                rootObject.outcomes = new List<Objects.O_NLP._Outcome>();
+                rootObject.outcomes.Add(rootObject.outcome);
+            }
+            else rootObject.outcome = rootObject.outcomes[0];
+
             return rootObject;
         }
     }
